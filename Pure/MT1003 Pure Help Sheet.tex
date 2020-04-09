@@ -1,0 +1,106 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{fontenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[none]{hyphenat}
+
+\definecolor{eqbl}{cmyk}{1,0.72,0,0.38}
+
+\renewcommand{\title}[1]{
+  \def\thetitle{#1}
+}
+
+\renewcommand{\date}[1]{
+  \def\thedate{#1}
+}
+\renewcommand{\author}[1]{
+  \def\theauthor{#1}
+}
+
+\renewcommand{\maketitle}{
+  \begin{mdframed}[
+    linecolor=gray,linewidth=1pt,%
+    leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm
+    ]
+    \begin{center}
+        {\color{eqbl}\Large\textbf\sffamily\scshape\thetitle}\\
+        \normalsize\theauthor\\
+        \normalsize\thedate\\
+    \end{center}
+  \end{mdframed}%
+  \vspace{-10pt}
+}
+
+\newcommand{\st}{\(s.t.\)}
+\newcommand{\thm}[1]{{\bfseries Theorem #1:}}
+\newcommand{\pf}{{\scshape Proof:}}
+
+\newcommand{\usection}[1]{%
+    \section{#1}\vspace{-15pt}
+    {\color{gray}\rule{\linewidth}{1pt}}\vspace{-25pt}
+}
+
+\title{MT1003 Pure\\Help Sheet}
+\author{Daniel Laing}
+\date{\today}
+
+\begin{document}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{4pt}
+\maketitle
+\usection{Graphs}
+    \subsection{Directed Graphs}
+        Consists of set \(V\) of \emph{vertices} and set \(E\) of ordered pairs from \(V\) making \emph{edges}.
+        Written: \(\Gamma = (V,E)\).\\
+        Let \(\Gamma\) be a directed graph:
+        \begin{description}
+            \setlength{\itemsep}{0pt}
+            \item[Walk] -- Sequence of verticies and edges on \(\Gamma\).
+            \item[Path] -- Walk on \(\Gamma\) {\st} no vertex occurs twice.
+            \item[Circuit] -- Closed walk on \(\Gamma\).
+            \item[Simple Circuit] -- Closed path on \(\Gamma\).
+            \item[Loop] -- Edge of form \((v,v)\) with \(v\in V\).
+        \end{description}
+    \subsection{Types \&  Properties of Graphs}
+        \begin{description}
+            \setlength{\itemsep}{0pt}
+            \item[Undirected Graph] -- A graph {\st} \(\forall\ (v_i,v_j)\in\Gamma\ \exists\ (v_j,v_i)\). %
+                Usually just called \emph{graph}.
+            \item[Multigraph] --  Graph with multiple edges between verticies.
+            \item[Simple Graph] -- Undirected, finite, no loops, no multiple edges.
+            \item[Connected Graph] -- \(\exists\) path between any two distinct verticies \(a,b\). 
+            \item[Vertex Degree] -- \# of edges incedent on vertex.
+            \item[Regular Graph] -- All verticies have same degree.
+            \item[Complete Graph] -- Graph, \(K_n\), is simple, connected with \(n\) verticies.
+            \item[Null Graph] -- Graph, \(N_n\), with \(n\) verticies and no edges. Also a regular graph.
+            \item[Cycle Length] -- Graph \(C_n\) {\st} it forms a circle.   
+        \end{description}
+    \subsection{Trees}
+        \begin{description}
+            \setlength{\itemsep}{0pt}
+            \item[Tree] -- Connected, no circuits.
+            \item[Spanning Tree] -- Subgraph of \(\Gamma\) which contains all verticies and is a tree. Minimal connectivity.
+        \end{description}
+        \thm{8.22} \(\exists\) a unique path between any two verticies on a tree.\\
+        {\pf} Since \(T\) is connected, \(\exists\geqslant 1\) path from \(a\to b\).
+            I \(\>1\) then \(\exists\) a circuit in \(T\therefore\) not a tree.\\
+        \thm{8.23} Let \(\Gamma\) be \emph{undirected graph}. \(\Gamma\) connected if and only if it has spanning tree.\\
+        \thm{8.24} \(\exists\) 3 non-iosmprphic trees with 5 verticies.\\
+        \thm{8.25} Let \(T=(V,E)\) be a tree.\\Then \(|E|=|V|-1\).\\
+        {\pf} [THINGS]
+    \subsection{Eulerian \& Hamiltonian Graphs}
+        \begin{description}
+            \setlength{\itemsep}{0pt}
+            \item[Eulerian Graph] -- \(\exists\) circuit in \(\Gamma\) passing though every vertex and edge exactly once.
+            \item[Semi-Eulerian Graph] -- \(\exists\) walk in \(\Gamma\) passing though every vertex and edge exactly once. 
+        \end{description}
+\newpage
+\end{multicols}
+\end{document}

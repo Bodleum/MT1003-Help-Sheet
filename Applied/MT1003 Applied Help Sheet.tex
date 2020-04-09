@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{fontenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[none]{hyphenat}
+\usepackage[super]{nth}
+\usepackage{bold-extra}
+
+\definecolor{eqbl}{cmyk}{1,0.72,0,0.38}
+
+\renewcommand{\title}[1]{
+  \def\thetitle{#1}
+}
+
+\renewcommand{\date}[1]{
+  \def\thedate{#1}
+}
+\renewcommand{\author}[1]{
+  \def\theauthor{#1}
+}
+
+\renewcommand{\maketitle}{
+  \begin{mdframed}[
+    linecolor=gray,linewidth=1pt,%
+    leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm
+    ]
+    \begin{center}
+        {\color{eqbl}\Large\textbf\sffamily\scshape\thetitle}\\
+        \normalsize\theauthor\\
+        \normalsize\thedate\\
+    \end{center}
+  \end{mdframed}%
+  \vspace{-10pt}
+}
+
+\newcommand{\st}{\(s.t.\)}
+\newcommand{\thm}[1]{{\bfseries Theorem #1:}}
+\newcommand{\pf}{{\scshape Proof:}}
+
+\newcommand{\usection}[1]{%
+    \section{#1}\vspace{-15pt}
+    {\color{gray}\rule{\linewidth}{1pt}}\vspace{-25pt}
+}
+
+\title{MT1003 Applied\\Help Sheet}
+\author{Daniel Laing}
+\date{\today}
+
+\begin{document}
+\maketitle
+\usection{Difference Equations}
+  \subsection{\nth{2} Order \((L4)\)}
+    {\bfseries Form:} \(A_{n+2}+bA_{n+1}+cA_{n}=F(n)\) with \(A_0=\alpha,\ A_1=\beta,\ b,c,\alpha,\beta\in\mathbb{R}\)\\
+    \((A_n)_{CF}\) has sol'n determined by roots of \(p(x)=x^2+bx+c\):
+    \begin{description}
+      \item[Distinct, Real Roots:] \(x_{1,2}=\lambda_1,\lambda_2\to A_n=k_1\lambda_1^n+k_2\lambda_2^n\)
+      \item[Repeated Roots:] \(x_{1,2}=\lambda\to A_n=\lambda^n(k_1+k_2n)\)
+      \item[Complex Roots:] \(x_{1,2}=p\pm qi=re^{\pm i\vartheta}\to A_n=r^n\left(k_1\cos{(n\vartheta)}+k_2\sin{(n\vartheta)}\right)\) 
+    \end{description}
+
+\end{document}
+
